@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konversi Bilangan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        /* style default */
+        .main-body {
+            margin: 10px 200px 30px 200px;
+        }
+        /* style mobile L */
+        @media (max-width: 425px) {
+            .main-body {
+                margin: 15px 30px 15px 30px;
+            }
+        }
+        /* style mobile M */
+        @media (max-width: 375px) {
+            .main-body {
+                margin: 10px 25px 10px 25px;
+            }
+        }
+        /* style mobile S */
+        @media (max-width: 320px) {
+            .main-body {
+                margin: 7px 25px 7px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-body">
+        <h2>Biner ke Desimal</h2>
+        <div class="input-group mb-3" id="form-konversi-biner">
+            <input type="number" class="form-control" placeholder="Biner" id="binerInput">
+            <button class="btn btn-outline-success" type="button" onclick="konversiBinerKeDesimal()" data-bs-toggle="modal" data-bs-target="#modal-box-konversi">Konversi</button>
+    </div>
+    <br><hr><br>
+        <h2>Desimal ke Biner</h2>
+        <div class="input-group mb-3" id="form-konversi-desimal">
+            <input type="number" class="form-control" placeholder="Desimal" id="desimalInput">
+            <button class="btn btn-outline-success" type="button" onclick="konversiDesimalKeBiner()" data-bs-toggle="modal" data-bs-target="#modal-box-konversi">Konversi</button>
+        </div>
+    </div>
+
+<!-- Modal box template -->
+<div class="modal fade" id="modal-box-konversi" tabindex="-1" aria-labelledby="modal-box-konversi" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-box-konversi">Rumus Konversi</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+let modalBoxTemplate = document.querySelector(".modal-body");
+function konversiBinerKeDesimal(){
+    let inputBiner = String(document.querySelector("#binerInput").value).split('').reverse();
+    let rumusKonversi = '';
+    let listDesimal = [];
+        inputBiner.forEach((biner, i) => {
+            rumusKonversi += `${biner} × 2<sup>${i}</sup> = <strong>${biner * Math.pow(2, i)}</strong> <br>`
+            listDesimal.push(Number(biner * Math.pow(2, i)));
+    });
+    modalBoxTemplate.innerHTML = `${rumusKonversi} <br> <strong>${listDesimal.join(' + ')} = ${listDesimal.reduce((a, b) => a + b)}</strong> <br> Bentuk desimal dari bilangan biner <strong>${inputBiner.reverse().join('')}</strong> adalah <strong>${listDesimal.reduce((a, b) => a + b)}</strong>`
+}
+function konversiDesimalKeBiner(){
+    let inputDesimal = document.querySelector("#desimalInput").value;
+    let desimalInput = inputDesimal;
+    let listBiner = [];
+    let rumusKonversi = '';
+    while(inputDesimal / 2 > 0){
+        rumusKonversi += `${inputDesimal} mod 2 = ${Math.floor(inputDesimal / 2)} sisa <strong>${Math.floor(inputDesimal % 2)}</strong> <br>`
+        listBiner.push(Math.floor(inputDesimal % 2));
+        inputDesimal = Math.floor(inputDesimal / 2) 
+    }
+    modalBoxTemplate.innerHTML = `${rumusKonversi} <br> Bentuk biner dari bilangan desimal <strong>${desimalInput}</strong> adalah <strong>${listBiner.reverse().join('')}</strong>`;
+}
+</script>
+</body>
+</html>
