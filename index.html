@@ -96,7 +96,7 @@ function konversiBinerKeDesimal(){
     if(inputBiner.filter(biner => biner > 1 || biner < 0).length > 0){
         modalBoxTemplate.innerHTML = `<div class="alert alert-danger" role="alert"><strong>${inputBiner.reverse().join('')}</strong> bukan bilangan biner!</div>`
     }else if(inputBiner.length <= 0){
-        modalBoxTemplate.innerHTML = `<div class="alert alert-danger" role="alert">Anda belum memasukkan input GOBLOK!</div>`
+        modalBoxTemplate.innerHTML = `<div class="alert alert-danger" role="alert">Anda belum memasukkan input tolol!</div>`
     }else{
         let rumusKonversi = '';
         let listDesimal = [];
@@ -111,7 +111,7 @@ function konversiDesimalKeBiner(){
     let inputDesimal = parseInt(document.querySelector("#desimalInput").value);
     let desimalInput = inputDesimal;
     if(String(inputDesimal) == "NaN"){
-        modalBoxTemplate.innerHTML = `<div class="alert alert-danger" role="alert">Anda belum memasukkan input GOBLOK!</div>`
+        modalBoxTemplate.innerHTML = `<div class="alert alert-danger" role="alert">Anda belum memasukkan input tolol!</div>`
     }else{
         let listBiner = [];
         let rumusKonversi = '';
