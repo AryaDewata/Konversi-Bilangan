@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- judul website -->
     <title>Konversi Bilangan</title>
-    <!-- link website font awesome -->
+
+    <!-- link font awesome -->
     <script src="https://kit.fontawesome.com/82972bccd0.js" crossorigin="anonymous"></script>
 
     <!-- link bootstrap-->
@@ -22,7 +23,7 @@
     <div class="main-body">
 
         <div class="main-fun" style="display: none;">
-            
+
         <h1 class="mb-3">Konversi Bilangan</h1>
 
         <!-- konversi tipe -->
@@ -32,24 +33,28 @@
             <option value="biner-ke-desimal">Biner ke Desimal</option>
             <option value="desimal-ke-oktal">Desimal ke Oktal</option>
             <option value="biner-ke-oktal">Biner ke Oktal</option>
-            <option value="desimal-ke-hexadesimal">Desimal ke Hexadesimal</option>
+            <option value="desimal-ke-heksadesimal">Desimal ke Hexadesimal</option>
+            <option value="heksadesimal-ke-desimal">Heksadesimal ke Desimal</option>
           </select>
         <!-- akhir konversi tipe-->
 
+        <!-- input konversi bilangan -->
         <div class="input-group mb-3" id="">
             <input type="number" class="form-control" placeholder="input" id="inputBilangan">
             <button class="btn btn-outline-success" type="button" onclick="konversiBilangan()" data-bs-toggle="modal" data-bs-target="#modal-box-konversi">Konversi</button>
         </div>
-
+        <!-- akhir input -->
+        
         </div>
 
-        <!-- mengloading -->
+        <!-- loading -->
         <div class="mengloading">
             <h5>Anggap aja lagi loading</h5>
             <div class="progress">
                 <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemax="100" style="width: 0%" id="loading-bar"></div>
             </div>
         </div>
+        <!-- akhir loading -->
 
     </div>
     <!-- akhir main body -->
@@ -71,15 +76,16 @@
     <!-- akhir modal box template -->
 
     <!-- social media -->
-    <!-- <div class="main-fun" style="display: none;">
+    <div class="main-fun" style="display: none;">
         <div class="social-media">
             <center>
                 <a href="https://www.instagram.com/madearyaastawa"><img src="https://img.icons8.com/fluency/48/000000/instagram-new.png"/>
             </center>
         </div>
-    </div> -->
+    </div>
+    <!-- akhir social media -->
+
     <!-- file javascript -->
-    <script type='text/javascript' src='//pl17059332.effectivecpmcontent.com/96/14/9b/96149b6aaf1607a435627e9fffbcc27c.js'></script>
     <script src="function.js"></script>
 </body>
 </html>
