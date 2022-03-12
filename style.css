@@ -2,7 +2,6 @@
 .main-body {
     margin: 10px 400px 30px 400px;
 }
-
 /* style mobile L */
 @media (max-width: 425px) {
     .main-body {
